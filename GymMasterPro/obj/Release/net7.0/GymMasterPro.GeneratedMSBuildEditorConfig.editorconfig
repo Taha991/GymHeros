@@ -28,6 +28,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/GymFits/GymFits/GymMasterPro/Pages/Memberships/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyc2hpcHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GymFits/GymFits/GymMasterPro/Pages/Memberships/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyc2hpcHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GymFits/GymFits/GymMasterPro/Pages/Memberships/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyc2hpcHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GymFits/GymFits/GymMasterPro/Pages/Memberships/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyc2hpcHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GymFits/GymFits/GymMasterPro/Pages/Memberships/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyc2hpcHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/GymFits/GymFits/GymMasterPro/Pages/Members/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -46,6 +66,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/GymFits/GymFits/GymMasterPro/Pages/Members/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GymFits/GymFits/GymMasterPro/Pages/Plans/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxhbnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GymFits/GymFits/GymMasterPro/Pages/Plans/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxhbnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GymFits/GymFits/GymMasterPro/Pages/Plans/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxhbnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GymFits/GymFits/GymMasterPro/Pages/Plans/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxhbnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/GymFits/GymFits/GymMasterPro/Pages/Plans/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGxhbnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/GymFits/GymFits/GymMasterPro/Pages/Privacy.cshtml]
