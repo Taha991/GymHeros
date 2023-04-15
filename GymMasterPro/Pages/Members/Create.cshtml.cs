@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using GymMasterPro.Data;
 using GymMasterPro.Model;
+using Microsoft.AspNetCore.Identity;
 
 namespace GymMasterPro.Pages.Members
 {
     public class CreateModel : PageModel
     {
         private readonly GymMasterPro.Data.ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public CreateModel(GymMasterPro.Data.ApplicationDbContext context)
+        public CreateModel(GymMasterPro.Data.ApplicationDbContext context , UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult OnGet()
@@ -36,7 +39,14 @@ namespace GymMasterPro.Pages.Members
             {
                 return Page();
             }
-
+            var loggedInUser = await _userManager.GetUserAsync(User);
+            if (loggedInUser == null)
+            {
+                return Page();
+            }
+            Member.UpdateAt = DateTime.Now;
+            Member.CreatedAt = DateTime.Now;
+            Member.CreatedBy = loggedInUser?.UserName;
             _context.Members.Add(Member);
             await _context.SaveChangesAsync();
 

@@ -8,16 +8,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GymMasterPro.Data;
 using GymMasterPro.Model;
+using Microsoft.AspNetCore.Identity;
 
 namespace GymMasterPro.Pages.Plans
 {
     public class EditModel : PageModel
     {
         private readonly GymMasterPro.Data.ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public EditModel(GymMasterPro.Data.ApplicationDbContext context)
+        public EditModel(GymMasterPro.Data.ApplicationDbContext context , UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         [BindProperty]
@@ -29,7 +32,14 @@ namespace GymMasterPro.Pages.Plans
             {
                 return NotFound();
             }
-
+            var loggedInUser = await _userManager.GetUserAsync(User);
+            if (loggedInUser == null)
+            {
+                return Page();
+            }
+            Plan.UpdateAt = DateTime.Now;
+            Plan.CreatedAt = DateTime.Now;
+            Plan.CreatedBy = loggedInUser?.UserName;
             var plan =  await _context.Plans.FirstOrDefaultAsync(m => m.Id == id);
             if (plan == null)
             {

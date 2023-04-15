@@ -7,37 +7,47 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using GymMasterPro.Data;
 using GymMasterPro.Model;
+using Microsoft.AspNetCore.Identity;
 
-namespace GymMasterPro.Pages.Memberships
+namespace GymMasterPro.Pages.MemberShips
 {
     public class CreateModel : PageModel
     {
         private readonly GymMasterPro.Data.ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public CreateModel(GymMasterPro.Data.ApplicationDbContext context)
+        public CreateModel(GymMasterPro.Data.ApplicationDbContext context , UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["MemberId"] = new SelectList(_context.Members, "Id", "Id");
-        ViewData["PlanId"] = new SelectList(_context.Plans, "Id", "Id");
+            ViewData["MemberId"] = new SelectList(_context.Members, "Id", "FirstName");
+            ViewData["PlanId"] = new SelectList(_context.Plans, "Id", "Id");
             return Page();
         }
 
         [BindProperty]
         public Membership Membership { get; set; } = default!;
-        
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Memberships == null || Membership == null)
+            if (!ModelState.IsValid || _context.Memberships == null || Membership == null)
             {
                 return Page();
             }
-
+            var loggedInUser = await _userManager.GetUserAsync(User);
+            if (loggedInUser == null)
+            {
+                return Page();
+            }
+            Membership.UpdateAt = DateTime.Now;
+            Membership.CreatedAt = DateTime.Now;
+            Membership.CreatedBy = loggedInUser?.UserName;
             _context.Memberships.Add(Membership);
             await _context.SaveChangesAsync();
 

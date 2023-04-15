@@ -8,16 +8,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GymMasterPro.Data;
 using GymMasterPro.Model;
+using Microsoft.AspNetCore.Identity;
 
 namespace GymMasterPro.Pages.Members
 {
     public class EditModel : PageModel
     {
         private readonly GymMasterPro.Data.ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public EditModel(GymMasterPro.Data.ApplicationDbContext context)
+        public EditModel(GymMasterPro.Data.ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         [BindProperty]
@@ -30,13 +33,13 @@ namespace GymMasterPro.Pages.Members
                 return NotFound();
             }
 
-            var member =  await _context.Members.FirstOrDefaultAsync(m => m.Id == id);
+            var member = await _context.Members.FirstOrDefaultAsync(m => m.Id == id);
             if (member == null)
             {
                 return NotFound();
             }
             Member = member;
-           ViewData["TrainerId"] = new SelectList(_context.Trainers, "Id", "Id");
+            ViewData["TrainerId"] = new SelectList(_context.Trainers, "Id", "Id");
             return Page();
         }
 
@@ -48,6 +51,16 @@ namespace GymMasterPro.Pages.Members
             {
                 return Page();
             }
+
+            var logInUser = await _userManager.GetUserAsync(User);
+            if (logInUser == null)
+            {
+                return Page();
+            }
+            // making code behind Created
+            Member.CreatedAt = DateTime.Now;
+            Member.UpdateAt = DateTime.Now;
+            Member.CreatedBy = logInUser?.UserName;
 
             _context.Attach(Member).State = EntityState.Modified;
 
@@ -72,7 +85,7 @@ namespace GymMasterPro.Pages.Members
 
         private bool MemberExists(int id)
         {
-          return (_context.Members?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Members?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
