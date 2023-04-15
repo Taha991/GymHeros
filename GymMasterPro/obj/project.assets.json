@@ -11060,11 +11060,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\GymFullManagment\\GymFullMaster\\GymMasterPro\\GymMasterPro.csproj",
+      "projectUniqueName": "F:\\GymFits\\GymFits\\GymMasterPro\\GymMasterPro.csproj",
       "projectName": "GymMasterPro",
-      "projectPath": "F:\\GymFullManagment\\GymFullMaster\\GymMasterPro\\GymMasterPro.csproj",
+      "projectPath": "F:\\GymFits\\GymFits\\GymMasterPro\\GymMasterPro.csproj",
       "packagesPath": "C:\\Users\\taha\\.nuget\\packages\\",
-      "outputPath": "F:\\GymFullManagment\\GymFullMaster\\GymMasterPro\\obj\\",
+      "outputPath": "F:\\GymFits\\GymFits\\GymMasterPro\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\taha\\AppData\\Roaming\\NuGet\\NuGet.Config",
