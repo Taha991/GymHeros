@@ -1,2 +1,2 @@
-# GymFits
+# GymFullMaster
 GymFullManagment

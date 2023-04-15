@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymMaster", "GymMaster.csproj", "{21A73D97-92EB-4856-8836-028FC538952E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymMasterPro", "..\GymMasterPro\GymMasterPro.csproj", "{CC14AFDC-A438-47BC-B50A-A53668A3D81B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21A73D97-92EB-4856-8836-028FC538952E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21A73D97-92EB-4856-8836-028FC538952E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21A73D97-92EB-4856-8836-028FC538952E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21A73D97-92EB-4856-8836-028FC538952E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC14AFDC-A438-47BC-B50A-A53668A3D81B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC14AFDC-A438-47BC-B50A-A53668A3D81B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC14AFDC-A438-47BC-B50A-A53668A3D81B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC14AFDC-A438-47BC-B50A-A53668A3D81B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A3AD7E02-B4CD-4409-879C-DEF8A32A6E46}
+	EndGlobalSection
+EndGlobal
