@@ -22,7 +22,7 @@ namespace GymMasterPro.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("GymMasterPro.Model.CheckActive", b =>
+            modelBuilder.Entity("GymMasterPro.Model.Checkin", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -46,7 +46,7 @@ namespace GymMasterPro.Data.Migrations
 
                     b.HasIndex("MemberId");
 
-                    b.ToTable("CheckActives");
+                    b.ToTable("Checkins");
                 });
 
             modelBuilder.Entity("GymMasterPro.Model.Member", b =>
@@ -442,10 +442,10 @@ namespace GymMasterPro.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("GymMasterPro.Model.CheckActive", b =>
+            modelBuilder.Entity("GymMasterPro.Model.Checkin", b =>
                 {
                     b.HasOne("GymMasterPro.Model.Member", "Member")
-                        .WithMany("CheckActives")
+                        .WithMany("Checkins")
                         .HasForeignKey("MemberId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
@@ -536,7 +536,7 @@ namespace GymMasterPro.Data.Migrations
 
             modelBuilder.Entity("GymMasterPro.Model.Member", b =>
                 {
-                    b.Navigation("CheckActives");
+                    b.Navigation("Checkins");
 
                     b.Navigation("Memberships");
                 });

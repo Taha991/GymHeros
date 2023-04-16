@@ -16,7 +16,7 @@ namespace GymMasterPro.Pages.Members
         private readonly GymMasterPro.Data.ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public CreateModel(GymMasterPro.Data.ApplicationDbContext context , UserManager<IdentityUser> userManager)
+        public CreateModel(GymMasterPro.Data.ApplicationDbContext context ,UserManager<IdentityUser> userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -30,23 +30,25 @@ namespace GymMasterPro.Pages.Members
 
         [BindProperty]
         public Member Member { get; set; } = default!;
-        
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+
+      
+        // when user click save this will be updated
         public async Task<IActionResult> OnPostAsync()
         {
           if (!ModelState.IsValid || _context.Members == null || Member == null)
             {
                 return Page();
             }
-            var loggedInUser = await _userManager.GetUserAsync(User);
-            if (loggedInUser == null)
+          var logInUser = await _userManager.GetUserAsync(User);
+            if (logInUser == null)
             {
                 return Page();
             }
-            Member.UpdateAt = DateTime.Now;
+            // making code behind Created
             Member.CreatedAt = DateTime.Now;
-            Member.CreatedBy = loggedInUser?.UserName;
+            Member.UpdateAt = DateTime.Now;
+            Member.CreatedBy = logInUser?.UserName;
             _context.Members.Add(Member);
             await _context.SaveChangesAsync();
 

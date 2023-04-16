@@ -14,7 +14,7 @@ namespace GymMasterPro.Data
         public DbSet<Trainer> Trainers { get; set; }
         public DbSet<Plan> Plans { get; set; }
         public DbSet<Membership> Memberships { get; set; }
-        public DbSet<CheckActive> CheckActives { get; set; }
+        public DbSet<Checkin> Checkins { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -49,10 +49,10 @@ namespace GymMasterPro.Data
                 .OnDelete(DeleteBehavior.NoAction);
             });
 
-            builder.Entity<CheckActive>(t =>
+            builder.Entity<Checkin>(t =>
             {
                 t.HasOne(m => m.Member)
-                .WithMany(m => m.CheckActives)
+                .WithMany(m => m.Checkins)
                 .HasForeignKey(m => m.MemberId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.NoAction);

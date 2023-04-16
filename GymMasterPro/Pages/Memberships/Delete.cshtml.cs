@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using GymMasterPro.Data;
 using GymMasterPro.Model;
 
-namespace GymMasterPro.Pages.Memberships
+namespace GymMasterPro.Pages.MemberShips
 {
     public class DeleteModel : PageModel
     {

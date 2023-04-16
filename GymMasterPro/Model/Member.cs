@@ -14,7 +14,7 @@
         public virtual Trainer? Trainer { get; set; }
         public virtual ICollection<Membership>? Memberships { get; set; }
 
-        public virtual ICollection<CheckActive>? CheckActives { get; set; }
+        public virtual ICollection<Checkin>? Checkins { get; set; }
 
     }
 }

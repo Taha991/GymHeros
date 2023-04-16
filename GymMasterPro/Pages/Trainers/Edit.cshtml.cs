@@ -17,7 +17,7 @@ namespace GymMasterPro.Pages.Trainers
         private readonly GymMasterPro.Data.ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public EditModel(GymMasterPro.Data.ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        public EditModel(GymMasterPro.Data.ApplicationDbContext context , UserManager<IdentityUser> userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -33,7 +33,7 @@ namespace GymMasterPro.Pages.Trainers
                 return NotFound();
             }
 
-            var trainer = await _context.Trainers.FirstOrDefaultAsync(m => m.Id == id);
+            var trainer =  await _context.Trainers.FirstOrDefaultAsync(m => m.Id == id);
             if (trainer == null)
             {
                 return NotFound();
@@ -84,7 +84,7 @@ namespace GymMasterPro.Pages.Trainers
 
         private bool TrainerExists(int id)
         {
-            return (_context.Trainers?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Trainers?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

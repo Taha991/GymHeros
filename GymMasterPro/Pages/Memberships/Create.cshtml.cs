@@ -24,19 +24,19 @@ namespace GymMasterPro.Pages.MemberShips
 
         public IActionResult OnGet()
         {
-            ViewData["MemberId"] = new SelectList(_context.Members, "Id", "FirstName");
-            ViewData["PlanId"] = new SelectList(_context.Plans, "Id", "Id");
+        ViewData["MemberId"] = new SelectList(_context.Members, "Id", "FirstName");
+        ViewData["PlanId"] = new SelectList(_context.Plans, "Id", "Id");
             return Page();
         }
 
         [BindProperty]
         public Membership Membership { get; set; } = default!;
-
+        
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid || _context.Memberships == null || Membership == null)
+          if (!ModelState.IsValid || _context.Memberships == null || Membership == null)
             {
                 return Page();
             }

@@ -8,16 +8,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GymMasterPro.Data;
 using GymMasterPro.Model;
+using Microsoft.AspNetCore.Identity;
 
-namespace GymMasterPro.Pages.Memberships
+namespace GymMasterPro.Pages.MemberShips
 {
     public class EditModel : PageModel
     {
         private readonly GymMasterPro.Data.ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public EditModel(GymMasterPro.Data.ApplicationDbContext context)
+        public EditModel(GymMasterPro.Data.ApplicationDbContext context , UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         [BindProperty]
@@ -36,7 +39,7 @@ namespace GymMasterPro.Pages.Memberships
                 return NotFound();
             }
             Membership = membership;
-           ViewData["MemberId"] = new SelectList(_context.Members, "Id", "Id");
+           ViewData["MemberId"] = new SelectList(_context.Members, "Id", "FirstName");
            ViewData["PlanId"] = new SelectList(_context.Plans, "Id", "Id");
             return Page();
         }
@@ -49,6 +52,15 @@ namespace GymMasterPro.Pages.Memberships
             {
                 return Page();
             }
+
+            var loggedInUser = await _userManager.GetUserAsync(User);
+            if (loggedInUser == null)
+            {
+                return Page();
+            }
+            Membership.UpdateAt = DateTime.Now;
+            Membership.CreatedAt = DateTime.Now;
+            Membership.CreatedBy = loggedInUser?.UserName;
 
             _context.Attach(Membership).State = EntityState.Modified;
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\GymFits\\GymFits\\GymMasterPro\\GymMasterPro.csproj": {}
+    "F:\\GymManagment\\GymMasterPro\\GymMasterPro.csproj": {}
   },
   "projects": {
-    "F:\\GymFits\\GymFits\\GymMasterPro\\GymMasterPro.csproj": {
+    "F:\\GymManagment\\GymMasterPro\\GymMasterPro.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\GymFits\\GymFits\\GymMasterPro\\GymMasterPro.csproj",
+        "projectUniqueName": "F:\\GymManagment\\GymMasterPro\\GymMasterPro.csproj",
         "projectName": "GymMasterPro",
-        "projectPath": "F:\\GymFits\\GymFits\\GymMasterPro\\GymMasterPro.csproj",
+        "projectPath": "F:\\GymManagment\\GymMasterPro\\GymMasterPro.csproj",
         "packagesPath": "C:\\Users\\taha\\.nuget\\packages\\",
-        "outputPath": "F:\\GymFits\\GymFits\\GymMasterPro\\obj\\",
+        "outputPath": "F:\\GymManagment\\GymMasterPro\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\taha\\AppData\\Roaming\\NuGet\\NuGet.Config",

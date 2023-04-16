@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Dj1AGFeZCXx9ElPflSvQHcUjBlZuNCO1ABTuba2CobnQKWu0ER1Sv2uXRBbAMHFEDcqAoUHOjLLMP/eDddqaTw==",
+  "dgSpecHash": "XEN1/vl4zTtR/+vJDM4SjrTb4ZKsdgmAYnOFO6aekiDLbXfMO4t29y0UTyS9ab+Jn2e+ENxeO8q5YXLGtS1CdQ==",
   "success": true,
-  "projectFilePath": "F:\\GymFits\\GymFits\\GymMasterPro\\GymMasterPro.csproj",
+  "projectFilePath": "F:\\GymManagment\\GymMasterPro\\GymMasterPro.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\taha\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\taha\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

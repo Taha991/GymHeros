@@ -17,7 +17,7 @@ namespace GymMasterPro.Pages.Members
         private readonly GymMasterPro.Data.ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public EditModel(GymMasterPro.Data.ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        public EditModel(GymMasterPro.Data.ApplicationDbContext context , UserManager<IdentityUser> userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -33,13 +33,13 @@ namespace GymMasterPro.Pages.Members
                 return NotFound();
             }
 
-            var member = await _context.Members.FirstOrDefaultAsync(m => m.Id == id);
+            var member =  await _context.Members.FirstOrDefaultAsync(m => m.Id == id);
             if (member == null)
             {
                 return NotFound();
             }
             Member = member;
-            ViewData["TrainerId"] = new SelectList(_context.Trainers, "Id", "Id");
+           ViewData["TrainerId"] = new SelectList(_context.Trainers, "Id", "FirstName");
             return Page();
         }
 
@@ -85,7 +85,7 @@ namespace GymMasterPro.Pages.Members
 
         private bool MemberExists(int id)
         {
-            return (_context.Members?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Members?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

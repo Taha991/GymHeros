@@ -16,7 +16,7 @@ namespace GymMasterPro.Pages.Trainers
         private readonly GymMasterPro.Data.ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public CreateModel(GymMasterPro.Data.ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        public CreateModel(GymMasterPro.Data.ApplicationDbContext context , UserManager<IdentityUser> userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -29,27 +29,27 @@ namespace GymMasterPro.Pages.Trainers
 
         [BindProperty]
         public Trainer Trainer { get; set; } = default!;
+        
 
-
-
+      
 
         // when user click save this will be updated
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid || _context.Trainers == null || Trainer == null)
+          if (!ModelState.IsValid || _context.Trainers == null || Trainer == null)
             {
                 return Page();
             }
-
-            var loggedInUser = await _userManager.GetUserAsync(User);
+        
+          var loggedInUser = await _userManager.GetUserAsync(User);
             if (loggedInUser == null)
             {
                 return Page();
             }
-            // making code behind Created
+           // making code behind Created
             Trainer.UpdateAt = DateTime.Now;
             Trainer.CreatedAt = DateTime.Now;
-            Trainer.CreatedBy = loggedInUser?.UserName;
+            Trainer.CreatedBy = loggedInUser?.UserName; 
             _context.Trainers.Add(Trainer);
             await _context.SaveChangesAsync();
 
