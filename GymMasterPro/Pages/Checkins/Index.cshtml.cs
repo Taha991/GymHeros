@@ -1,36 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using GymMasterPro.Data;
-using GymMasterPro.Model;
+using Model;
+using Services.Interfaces;
 
 namespace GymMasterPro.Pages.Checkins
 {
     public class IndexModel : PageModel
     {
-        private readonly GymMasterPro.Data.ApplicationDbContext _context;
+        private readonly ICheckinService _checkinService;
 
-        public IndexModel(GymMasterPro.Data.ApplicationDbContext context)
+        public IndexModel(ICheckinService checkinService)
         {
-            _context = context;
+            _checkinService = checkinService;
         }
 
-        public IList<Checkin> Checkin { get;set; } = default!;
+        public IList<Checkin> Checkin { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Checkins != null)
-            {
-                Checkin = await _context.Checkins
-                .Include(c => c.Member)
-                .ThenInclude(c=>c.Memberships)
-                .Where(x=> x.CreatedAt.Date == DateTime.Today)
-                .ToListAsync();
-            }
+            Checkin = await _checkinService.GetCheckins();
         }
     }
 }

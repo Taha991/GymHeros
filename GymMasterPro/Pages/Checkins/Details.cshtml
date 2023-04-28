@@ -12,10 +12,22 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Checkin.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Checkin.Status)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Checkin.EndDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Checkin.EndDate)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Checkin.Member)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Checkin.Member.Id)
+            @Html.DisplayFor(model => model.Checkin.Member.Address)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Checkin.CreatedAt)

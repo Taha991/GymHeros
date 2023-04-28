@@ -1,0 +1,17 @@
+F:\GymFits\Data\obj\Debug\net7.0\Data.csproj.AssemblyReference.cache
+F:\GymFits\Data\obj\Debug\net7.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+F:\GymFits\Data\obj\Debug\net7.0\Data.AssemblyInfoInputs.cache
+F:\GymFits\Data\obj\Debug\net7.0\Data.AssemblyInfo.cs
+F:\GymFits\Data\obj\Debug\net7.0\Data.csproj.CoreCompileInputs.cache
+F:\GymFits\Data\bin\Debug\net7.0\Data.deps.json
+F:\GymFits\Data\bin\Debug\net7.0\Data.runtimeconfig.json
+F:\GymFits\Data\bin\Debug\net7.0\Data.dll
+F:\GymFits\Data\bin\Debug\net7.0\Data.pdb
+F:\GymFits\Data\bin\Debug\net7.0\Models.dll
+F:\GymFits\Data\bin\Debug\net7.0\Models.pdb
+F:\GymFits\Data\obj\Debug\net7.0\Data.csproj.CopyComplete
+F:\GymFits\Data\obj\Debug\net7.0\Data.dll
+F:\GymFits\Data\obj\Debug\net7.0\refint\Data.dll
+F:\GymFits\Data\obj\Debug\net7.0\Data.pdb
+F:\GymFits\Data\obj\Debug\net7.0\Data.genruntimeconfig.cache
+F:\GymFits\Data\obj\Debug\net7.0\ref\Data.dll

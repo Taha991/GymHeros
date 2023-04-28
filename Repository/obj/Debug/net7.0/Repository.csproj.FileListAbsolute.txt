@@ -1,0 +1,5 @@
+F:\GymFits\Repository\obj\Debug\net7.0\Repository.csproj.AssemblyReference.cache
+F:\GymFits\Repository\obj\Debug\net7.0\Repository.GeneratedMSBuildEditorConfig.editorconfig
+F:\GymFits\Repository\obj\Debug\net7.0\Repository.AssemblyInfoInputs.cache
+F:\GymFits\Repository\obj\Debug\net7.0\Repository.AssemblyInfo.cs
+F:\GymFits\Repository\obj\Debug\net7.0\Repository.csproj.CoreCompileInputs.cache

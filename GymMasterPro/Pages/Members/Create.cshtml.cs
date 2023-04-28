@@ -1,30 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using GymMasterPro.Data;
-using GymMasterPro.Model;
+
 using Microsoft.AspNetCore.Identity;
+using Model;
+using Services.Interfaces;
 
 namespace GymMasterPro.Pages.Members
 {
+
     public class CreateModel : PageModel
     {
-        private readonly GymMasterPro.Data.ApplicationDbContext _context;
+        private readonly IMemberService _memberService;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly ITrainerService _trainerService;
 
-        public CreateModel(GymMasterPro.Data.ApplicationDbContext context ,UserManager<IdentityUser> userManager)
+        public CreateModel(IMemberService memberService,
+            UserManager<IdentityUser> userManager,
+            ITrainerService trainerService)
         {
-            _context = context;
+            _memberService = memberService;
             _userManager = userManager;
+            _trainerService = trainerService;
         }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGet()
         {
-        ViewData["TrainerId"] = new SelectList(_context.Trainers, "Id", "FirstName");
+            var trainers = await _trainerService.GetTrainers();
+            ViewData["TrainerId"] = new SelectList(trainers, "Id", "FirstName");
             return Page();
         }
 
@@ -32,25 +36,23 @@ namespace GymMasterPro.Pages.Members
         public Member Member { get; set; } = default!;
 
 
-      
-        // when user click save this will be updated
+        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Members == null || Member == null)
+            if (!ModelState.IsValid || Member == null)
             {
                 return Page();
             }
-          var logInUser = await _userManager.GetUserAsync(User);
-            if (logInUser == null)
+            var loggedInUser = await _userManager.GetUserAsync(User);
+            if (loggedInUser == null)
             {
                 return Page();
             }
-            // making code behind Created
-            Member.CreatedAt = DateTime.Now;
             Member.UpdateAt = DateTime.Now;
-            Member.CreatedBy = logInUser?.UserName;
-            _context.Members.Add(Member);
-            await _context.SaveChangesAsync();
+            Member.CreatedAt = DateTime.Now;
+            Member.CreatedBy = loggedInUser?.UserName;
+
+            await _memberService.SaveAsync(Member);
 
             return RedirectToPage("./Index");
         }

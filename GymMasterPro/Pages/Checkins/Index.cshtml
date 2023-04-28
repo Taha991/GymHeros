@@ -5,13 +5,10 @@
     ViewData["Title"] = "Index";
 }
 <h1>Checkins</h1>
-@if (SignInManager.IsSignedIn(User))
-{
-    <p>
-        <a asp-page="Create">Check In here.</a>
-    </p>
-}
 
+<p>
+    <a asp-page="Create">Check In here.</a>
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -43,7 +40,7 @@
                 </td>
                 <td>
                     @if (SignInManager.IsSignedIn(User))
-                    {   
+                    {
                         <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
                     }
                     @if (SignInManager.IsSignedIn(User))

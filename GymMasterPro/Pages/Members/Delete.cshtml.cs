@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using GymMasterPro.Data;
-using GymMasterPro.Model;
+using Model;
 
 namespace GymMasterPro.Pages.Members
 {
     public class DeleteModel : PageModel
     {
-        private readonly GymMasterPro.Data.ApplicationDbContext _context;
+        private readonly Data.ApplicationDbContext _context;
 
-        public DeleteModel(GymMasterPro.Data.ApplicationDbContext context)
+        public DeleteModel( Data.ApplicationDbContext context)
         {
             _context = context;
         }
