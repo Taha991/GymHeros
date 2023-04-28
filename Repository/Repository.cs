@@ -1,5 +1,5 @@
-﻿using GymMasterPro.Model;
-using Data;
+﻿using Data;
+using Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace Repository
