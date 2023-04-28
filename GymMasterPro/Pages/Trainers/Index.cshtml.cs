@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Model;
 using Services.Interfaces;
 

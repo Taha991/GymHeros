@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Model;
 using Services.Interfaces;
@@ -36,5 +35,5 @@ namespace GymMasterPro.Pages.MemberShips
             return Page();
         }
     }
-    }
+    
 }

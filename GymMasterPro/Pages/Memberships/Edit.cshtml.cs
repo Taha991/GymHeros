@@ -70,4 +70,5 @@ namespace GymMasterPro.Pages.MemberShips
 
             return RedirectToPage("./Index");
         }
+    }
 }

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/GymMasterPro.styles.css" asp-append-version="true" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -23,7 +25,10 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Dashboard</a>
                         </li>
-                        @if(SignInManager.IsSignedIn(User))
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Checkins/Index">Checkins</a>
+                        </li>
+                        @if (SignInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Trainers/Index">Trainers</a>
@@ -35,13 +40,9 @@
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Plans/Index">Plans</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Memberships/Index">MemberShip</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/checkins/Index">Checkin</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Memberships/Index">Memberships</a>
                             </li>
                         }
-                      
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

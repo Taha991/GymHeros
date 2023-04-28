@@ -1,77 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using GymMasterPro.Data;
-using GymMasterPro.Model;
+using Microsoft.AspNetCore.Identity;
+using Model;
+using Services.Interfaces;
 
 namespace GymMasterPro.Pages.Plans
 {
-    public class EditModel : PageModel
-    {
-        private readonly GymMasterPro.Data.ApplicationDbContext _context;
-
-        public EditModel(GymMasterPro.Data.ApplicationDbContext context)
+   
+        public class EditModel : PageModel
         {
-            _context = context;
-        }
+            private readonly IPlanService _planService;
+            private readonly UserManager<IdentityUser> _userManager;
 
-        [BindProperty]
-        public Plan Plan { get; set; } = default!;
-
-        public async Task<IActionResult> OnGetAsync(int? id)
-        {
-            if (id == null || _context.Plans == null)
+            public EditModel(IPlanService planService, UserManager<IdentityUser> userManager)
             {
-                return NotFound();
+                _planService = planService;
+                _userManager = userManager;
             }
 
-            var plan =  await _context.Plans.FirstOrDefaultAsync(m => m.Id == id);
-            if (plan == null)
-            {
-                return NotFound();
-            }
-            Plan = plan;
-            return Page();
-        }
+            [BindProperty]
+            public Plan Plan { get; set; } = default!;
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
-        {
-            if (!ModelState.IsValid)
+            public async Task<IActionResult> OnGetAsync(int id)
             {
-                return Page();
-            }
-
-            _context.Attach(Plan).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PlanExists(Plan.Id))
+                if (id == 0)
                 {
                     return NotFound();
                 }
-                else
+
+                var plan = await _planService.GetById(id);
+                if (plan == null)
                 {
-                    throw;
+                    return NotFound();
                 }
+                Plan = plan;
+                return Page();
             }
 
-            return RedirectToPage("./Index");
-        }
+            // To protect from overposting attacks, enable the specific properties you want to bind to.
+            // For more details, see https://aka.ms/RazorPagesCRUD.
+            public async Task<IActionResult> OnPostAsync()
+            {
+                if (!ModelState.IsValid)
+                {
+                    return Page();
+                }
+                var loggedInUser = await _userManager.GetUserAsync(User);
+                if (loggedInUser == null)
+                {
+                    return Page();
+                }
+                Plan.UpdateAt = DateTime.Now;
+                Plan.CreatedAt = DateTime.Now;
+                Plan.CreatedBy = loggedInUser?.UserName;
+                await _planService.UpdateAsync(Plan.Id, Plan);
 
-        private bool PlanExists(int id)
-        {
-          return (_context.Plans?.Any(e => e.Id == id)).GetValueOrDefault();
+                return RedirectToPage("./Index");
+            }
         }
     }
-}
+
