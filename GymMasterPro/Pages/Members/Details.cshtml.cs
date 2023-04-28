@@ -1,39 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using GymMasterPro.Data;
-using GymMasterPro.Model;
+using Model;
+using Services.Interfaces;
 
 namespace GymMasterPro.Pages.Members
 {
     public class DetailsModel : PageModel
     {
-        private readonly GymMasterPro.Data.ApplicationDbContext _context;
+        private readonly IMemberService _memberService;
 
-        public DetailsModel(GymMasterPro.Data.ApplicationDbContext context)
+        public DetailsModel(IMemberService memberService)
         {
-            _context = context;
+            _memberService = memberService;
         }
 
-      public Member Member { get; set; } = default!; 
+        public Member Member { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
-            if (id == null || _context.Members == null)
+            if (id == 0 || await _memberService.GetMembers() == null)
             {
                 return NotFound();
             }
 
-            var member = await _context.Members.FirstOrDefaultAsync(m => m.Id == id);
+            var member = await _memberService.GetMemberById(id);
             if (member == null)
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 Member = member;
             }

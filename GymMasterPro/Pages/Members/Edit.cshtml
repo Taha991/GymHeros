@@ -59,7 +59,9 @@
                 <span asp-validation-for="Member.TrainerId" class="text-danger"></span>
             </div>
             <input type="hidden" asp-for="Member.Id" />
-          
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
         </form>
     </div>
 </div>
@@ -69,5 +71,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

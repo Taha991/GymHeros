@@ -1,34 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using GymMasterPro.Data;
-using GymMasterPro.Model;
+using Model;
+using Services.Interfaces;
 
 namespace GymMasterPro.Pages.MemberShips
 {
     public class IndexModel : PageModel
     {
-        private readonly GymMasterPro.Data.ApplicationDbContext _context;
+        private readonly IMembershipService _membershipService;
 
-        public IndexModel(GymMasterPro.Data.ApplicationDbContext context)
+        public IndexModel(IMembershipService membershipService)
         {
-            _context = context;
+            _membershipService = membershipService;
         }
 
-        public IList<Membership> Membership { get;set; } = default!;
+        public IList<Membership> Membership { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Memberships != null)
-            {
-                Membership = await _context.Memberships
-                .Include(m => m.Member)
-                .Include(m => m.Plan).ToListAsync();
-            }
+            Membership = await _membershipService.GetMemberships();
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿@page
-@model GymMasterPro.Pages.MemberShips.DeleteModel
+@model GymMasterPro.Pages.Memberships.DeleteModel
 
 @{
     ViewData["Title"] = "Delete";
@@ -34,13 +34,13 @@
             @Html.DisplayNameFor(model => model.Membership.Member)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Membership.Member.Id)
+            @Html.DisplayFor(model => model.Membership.Member.Address)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Membership.Plan)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Membership.Plan.Id)
+            @Html.DisplayFor(model => model.Membership.Plan.Name)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Membership.CreatedAt)
@@ -61,7 +61,7 @@
             @Html.DisplayFor(model => model.Membership.CreatedBy)
         </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Membership.Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

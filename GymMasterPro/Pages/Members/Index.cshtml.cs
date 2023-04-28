@@ -1,7 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Model;
 using Services.Interfaces;
 
