@@ -4,7 +4,6 @@
     ViewData["Title"] = "Dashboard";
 }
 
-
 <div class="container">
     <div class="row">
         <div class="col turquoise-color">
@@ -25,7 +24,7 @@
                 <div class="col text-center text-white">
                     <i class="fa-solid fa-user"></i>
                     <p>
-                       @* @Model.ActiveMembers*@
+                        @Model.ActiveMembers
                     </p>
                 </div>
             </div>
@@ -39,7 +38,7 @@
             <div class="row">
                 <div class="col text-center text-white">
                     <i class="fa-sharp fa-solid fa-user-minus"></i>
-                    @*<p>@Model.InActiveMembers</p>*@
+                    <p>@Model.InActiveMembers</p>
                 </div>
             </div>
             <div class="row">
@@ -54,7 +53,7 @@
             <div class="row">
                 <div class="col text-center text-white">
                     <i class="fa-sharp fa-solid fa-user-tie"></i>
-                   @* <p>@Model.TotalTrainers</p>*@
+                    <p>@Model.TotalTrainers</p>
                 </div>
             </div>
             <div class="row">
@@ -67,7 +66,7 @@
             <div class="row">
                 <div class="col text-center text-white">
                     <i class="fa-solid fa-user-xmark"></i>
-                  @*  <p>@Model.ExpiredMemberShip</p>*@
+                    <p>@Model.ExpiredMemberShip</p>
                 </div>
             </div>
             <div class="row">
@@ -96,7 +95,7 @@
                         Mobile No
                     </th>
                 </tr>
-             @*   @foreach (var member in @Model.Members!)
+                @foreach (var member in @Model.Members!)
                 {
                     <tr>
                         <td>
@@ -113,7 +112,7 @@
                         </td>
 
                     </tr>
-                }*@
+                }
             </table>
         </div>
     </div>

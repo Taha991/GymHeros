@@ -1,14 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using Model;
 using Services.Interfaces;
 
-namespace GymMasterPro.Pages.MemberShips
+namespace GymMasterPro.Pages.Memberships
 {
     public class DeleteModel : PageModel
     {
-
         private readonly IMembershipService _membershipService;
 
         public DeleteModel(IMembershipService membershipService)

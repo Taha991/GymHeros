@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Model;
 using Services.Interfaces;
 
-namespace GymMasterPro.Pages.MemberShips
+namespace GymMasterPro.Pages.Memberships
 {
     public class DetailsModel : PageModel
     {
@@ -35,5 +35,4 @@ namespace GymMasterPro.Pages.MemberShips
             return Page();
         }
     }
-    
 }
